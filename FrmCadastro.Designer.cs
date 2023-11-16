@@ -46,6 +46,7 @@
             this.rdb9 = new System.Windows.Forms.RadioButton();
             this.rdb8 = new System.Windows.Forms.RadioButton();
             this.rdb7 = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -249,11 +250,23 @@
             this.rdb7.Text = "7 anos";
             this.rdb7.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(1043, 155);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 15);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "DIGITE SEU NOME";
+            // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 658);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.linkLabel1);
@@ -268,6 +281,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "FrmCadastro";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmCadastro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -298,6 +312,7 @@
         private System.Windows.Forms.RadioButton rdb9;
         private System.Windows.Forms.RadioButton rdb8;
         private System.Windows.Forms.RadioButton rdb7;
+        private System.Windows.Forms.Label label2;
     }
 }
 

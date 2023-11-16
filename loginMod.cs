@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ATEX2023_2
 {
-    public partial class FrmModerador : MetroFramework.Forms.MetroForm
+    public partial class loginMod : Form
     {
-        public FrmModerador()
+        public loginMod()
         {
             InitializeComponent();
             txtSenha.PasswordChar = '*';
@@ -20,24 +20,29 @@ namespace ATEX2023_2
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if(txtNome.Text == string.Empty || txtEmail.Text == string.Empty || txtSenha.Text == string.Empty)
+            if(txtEmail.Text == string.Empty || txtSenha.Text == string.Empty)
             {
-                MessageBox.Show("Preencha todos os campos para continuar");
+                MessageBox.Show("Preencha todos os campos para continuar!");
             }
-            else if (!Program.vereficaEmail(txtEmail.Text)){
+            else if (!Program.vereficaEmail(txtEmail.Text))
+            {
                 MessageBox.Show("Email inválido!");
             }
             else
             {
                 moderador mod = new moderador();
-                mod.Nome = txtNome.Text;
                 mod.Email = txtEmail.Text;
                 mod.Senha = txtSenha.Text;
-                mod.incluirDados();
-                MessageBox.Show($"Moderador cadastrado com sucesso!");
-                txtEmail.Text = txtSenha.Text = txtNome.Text = "";
-                new loginMod().ShowDialog();
-                this.Close();
+                if (!mod.vereficaSenha())
+                    MessageBox.Show("Email ou Senha incorretos!");
+                else
+                {
+                    MessageBox.Show("Bem vindo(a)!");
+                    this.Hide();
+                    new FrmJogos().ShowDialog();
+                    this.Close();
+                }
+                
             }
         }
 
@@ -55,11 +60,6 @@ namespace ATEX2023_2
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            new loginMod().ShowDialog();
-            this.Close();
-        }
+        
     }
 }

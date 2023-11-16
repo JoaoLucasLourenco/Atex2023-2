@@ -27,10 +27,16 @@ namespace ATEX2023_2
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            User usuario = new User();
             FrmInicio frmInicio = new FrmInicio();
             this.Hide();
             frmInicio.ShowDialog();
             this.Close();
+        }
+
+        private void FrmCadastro_Load(object sender, EventArgs e)
+        {
+            label2.Text = "";
         }
     }
 }
